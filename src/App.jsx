@@ -2,7 +2,9 @@
  
 
 const pdfLink = "./Karthik_Portfolio.pdf"; // update this path when deploying
-const resume="./KARTHIK P.pdf"
+const resume="./KARTHIK P.pdf";
+const karthikimage="./karthik image.png"
+ 
 export default function Portfolio() {
   return (
     <div className="min-h-screen bg-gray-50 text-gray-900">
@@ -45,7 +47,9 @@ export default function Portfolio() {
           <div className="bg-white rounded-lg shadow-md p-6">
             <div className="h-48 bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-lg flex items-center justify-center">
               <div className="text-center">
-                <div className="text-sm text-gray-500">Portfolio Snapshot</div>
+                <center>
+<img className="w-[30%]" src={karthikimage} alt="" />
+</center>
                 <div className="mt-2 font-medium text-lg">Clean code · Fast delivery · Responsive</div>
               </div>
             </div>
