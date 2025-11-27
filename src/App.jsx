@@ -1,29 +1,112 @@
  import React from "react";
+ import { useState } from "react";
+ const pdfLink = "./Karthik_Portfolio.pdf";  
+ const resume="./KARTHIK P.pdf";
+ const karthikimage="./karthik image.png"
  
-
-const pdfLink = "./Karthik_Portfolio.pdf"; // update this path when deploying
-const resume="./KARTHIK P.pdf";
-const karthikimage="./karthik image.png"
- 
-export default function Portfolio() {
+ export default function Portfolio() {
+  const [isOpen, setIsOpen] = useState(false);                    
   return (
     <div className="min-h-screen bg-gray-50 text-gray-900">
-      <header className="bg-white shadow-sm">
-        <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-          <h1 className="text-xl font-semibold">Karthik</h1>
-          <nav className="space-x-4 text-sm">
-              <a href={resume} className="ml-4 inline-block rounded-md border border-indigo-600 px-3 py-1 text-indigo-600 text-sm" download>
-              Download Resume
-            </a>
-            <a href="#projects" className="hover:text-indigo-600">Projects</a>
-            <a href="#skills" className="hover:text-indigo-600">Skills</a>
-            <a href="#contact" className="hover:text-indigo-600">Contact</a>
-            <a href={pdfLink} className="ml-4 inline-block rounded-md border border-indigo-600 px-3 py-1 text-indigo-600 text-sm" download>
-              Download Portfolio
-            </a>
-          </nav>
+       <header className="bg-white shadow-sm">
+      <div className="container mx-auto px-6 py-4 flex items-center justify-between">
+        <h1 className="text-xl font-semibold">Karthik</h1>
+
+        {/* Desktop Menu */}
+        <nav className="hidden md:flex space-x-4 text-sm items-center">
+          <a
+            href={resume}
+            className="ml-4 inline-block rounded-md border border-indigo-600 px-3 py-1 text-indigo-600 text-sm"
+            download
+          >
+            Download Resume
+          </a>
+          <a href="#projects" className="hover:text-indigo-600">
+            Projects
+          </a>
+          <a href="#skills" className="hover:text-indigo-600">
+            Skills
+          </a>
+          <a href="#contact" className="hover:text-indigo-600">
+            Contact
+          </a>
+          <a
+            href={pdfLink}
+            className="ml-4 inline-block rounded-md border border-indigo-600 px-3 py-1 text-indigo-600 text-sm"
+            download
+          >
+            Download Portfolio
+          </a>
+        </nav>
+
+        {/* Mobile Hamburger Button */}
+        <button
+          className="md:hidden text-gray-700 focus:outline-none"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {isOpen ? (
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M6 18L18 6M6 6l12 12"
+              ></path>
+            </svg>
+          ) : (
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          )}
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      {isOpen && (
+        <div className="md:hidden px-6 pb-4 space-y-2">
+          <a
+            href={resume}
+            className="block rounded-md border border-indigo-600 px-3 py-1 text-indigo-600 text-sm"
+            download
+          >
+            Download Resume
+          </a>
+          <a href="#projects" className="block hover:text-indigo-600">
+            Projects
+          </a>
+          <a href="#skills" className="block hover:text-indigo-600">
+            Skills
+          </a>
+          <a href="#contact" className="block hover:text-indigo-600">
+            Contact
+          </a>
+          <a
+            href={pdfLink}
+            className="block rounded-md border border-indigo-600 px-3 py-1 text-indigo-600 text-sm"
+            download
+          >
+            Download Portfolio
+          </a>
         </div>
-      </header>
+      )}
+    </header>
 
       <main className="container mx-auto px-6 py-12">
         {/* Hero */}
